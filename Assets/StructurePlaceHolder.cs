@@ -37,17 +37,21 @@ public class StructurePlaceHolder : MonoBehaviour
         if (structure!=null)
         {
             indicator.GetComponent<MeshRenderer>().material.color = new Color(255, 0, 0);
-            if (Input.GetMouseButtonDown(0))
-            {
-                structure= player.GetBuildingToBuild();
-                Instantiate(structure, gameObject.transform).transform.SetAsLastSibling();
-            }
         }
         else
         {
             indicator.GetComponent<MeshRenderer>().material.color = new Color(0, 255, 0);
             textHolder.SetActive(true);
             textHolder.GetComponentInChildren<TextMeshProUGUI>().text = "Place a tower here";
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                structure = player.GetBuildingToBuild();
+                if (structure!=null)
+                {
+                    Instantiate(structure, gameObject.transform.position, Quaternion.identity).transform.SetAsLastSibling(); 
+                }
+            }
         }
     }
 
@@ -56,5 +60,6 @@ public class StructurePlaceHolder : MonoBehaviour
         indicator.GetComponent<MeshRenderer>().material.color = new Color(255, 255, 255);
         textHolder.GetComponentInChildren<TextMeshProUGUI>().text =string.Empty;
         textHolder.SetActive(false);
+        player.SetBuildingToBuild(null);
     }
 }

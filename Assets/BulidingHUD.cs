@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class BulidingHUD : MonoBehaviour
 {
-    [SerializeField] List<Structure> structures;
-    [SerializeField] List<Image> images;
+    [SerializeField] List<StructureUI> structures;
+    [SerializeField] GameObject structureContainer;
+
     Player player;
 
     private void Awake()
@@ -17,7 +18,13 @@ public class BulidingHUD : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //if (structures != null)
+        //{
+        //    if (structures.Count>0)
+        //    {
+        //        In
+        //    }
+        //}
     }
 
     // Update is called once per frame

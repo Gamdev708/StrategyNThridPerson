@@ -7,20 +7,28 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
 
-    [SerializeField] Vector3 Destination;
+    [SerializeField] Transform Destination;
     NavMeshAgent agent;
     int health = 100;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+    }
+
+    private void Start()
+    {
+        Destination = GameObject.FindGameObjectWithTag("EndGoal").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(Destination);
+        if (Destination!=null)
+        {
+            agent.SetDestination(Destination.position); 
+        }
     }
 
 

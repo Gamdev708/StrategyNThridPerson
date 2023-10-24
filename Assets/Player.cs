@@ -22,7 +22,8 @@ public class Player : MonoBehaviour
 
     public void SetBuildingToBuild(Structure structure)
     {
-        selectedBuiliding=structure;
+        //Debug.Log("Player took:" + structure.name);
+        selectedBuiliding = structure;
     }
     public Structure GetBuildingToBuild()
     {

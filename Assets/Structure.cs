@@ -18,11 +18,6 @@ public class Structure : MonoBehaviour
     List<GameObject> targets;
     GameObject target;
 
-    private void OnEnable()
-    {
-        
-    }
-
     // Start is called before the first frame update
     void Start()
     {

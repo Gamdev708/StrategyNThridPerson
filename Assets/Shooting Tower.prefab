@@ -104,6 +104,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2945652016557923133, guid: adc928faa4fd8554ea5b260c92eb1607, type: 3}
+      propertyPath: attackRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2973993162233558585, guid: adc928faa4fd8554ea5b260c92eb1607, type: 3}
       propertyPath: m_Name
       value: Shooting Tower
