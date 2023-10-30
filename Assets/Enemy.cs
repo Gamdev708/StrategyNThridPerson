@@ -10,25 +10,39 @@ public class Enemy : MonoBehaviour
     [SerializeField] Transform Destination;
     NavMeshAgent agent;
     int health = 100;
+    FortHealth fort;
 
     // Start is called before the first frame update
     void Awake()
     {
+        
         agent = GetComponent<NavMeshAgent>();
     }
 
     private void Start()
     {
         Destination = GameObject.FindGameObjectWithTag("EndGoal").transform;
+        fort = GameObject.FindGameObjectWithTag("EndGoal").GetComponent<FortHealth>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Destination!=null)
+        if (this.health <= 0)
+        {
+            agent.enabled = false;
+            Destroy(gameObject);
+        }
+       else if (Destination!=null && !IsDead())
         {
             agent.SetDestination(Destination.position); 
+            //if (agent.pathStatus == NavMeshPathStatus.PathComplete)
+            //{
+            //    Destroy(gameObject);
+            //}
         }
+
+       
     }
 
 
@@ -39,7 +53,7 @@ public class Enemy : MonoBehaviour
 
     public bool ChangeHealth(int health)
     {
-        if(health < 0) { return false; }
+        if(this.health < 0) { return false; }
         this.health += health;
         return true;
     }
